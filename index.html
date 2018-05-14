@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>InstafeedJS-Wrapper</title>
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" href="src/css/reset.min.css">
+        <link rel="stylesheet" href="src/css/style.min.css">
+    </head>
+    <body>
+        <div class="ifw-demo-container">
+            <section class="ifw-demo-section ifw-text-center">
+                <h2>6 Items</h2>
+
+                <!-- Instafeed container -->
+                <div id="ifw-instafeed-container" class="ifw-instafeed-container"
+                     data-load-more-control="instafeed-load-more"
+                     data-get="user"
+                     data-user="marry"></div>
+                <!-- End of Instafeed container -->
+
+                <!-- Control for dynamically loading photos -->
+                <button id="instafeed-load-more" type="button" class="ifw-demo-btn">Load More</button>
+                <!-- End of Control for dynamically loading photos -->
+            </section>
+
+            <section class="ifw-demo-section ifw-text-center">
+                <h2>3 Items</h2>
+
+                <!-- Instafeed container -->
+                <div id="ifw-instafeed-container-2" class="ifw-instafeed-container"
+                     data-load-more-control="instafeed-load-more-2"
+                     data-limit="3"
+                     data-resolution="thumbnail"
+                     data-get="user"
+                     data-user="marry"></div>
+                <!-- End of Instafeed container -->
+
+                <!-- Control for dynamically loading photos -->
+                <button id="instafeed-load-more-2" type="button" class="ifw-demo-btn">Load More</button>
+                <!-- End of Control for dynamically loading photos -->
+            </section>
+        </div>
+
+        <script src="libs/instafeed.min.js"></script>
+        <script src="instafeed.wrapper.js"></script>
+        <script>
+            (function(){
+                'use strict';
+
+                // Getting the container element
+                var containers = document.getElementsByClassName('ifw-instafeed-container');
+
+                InstafeedWrapper.setUsersSecureOptions({
+                    'marry': {
+                        
+                    }
+                });
+
+                // Initialization
+                var instafeed = InstafeedWrapper.init(containers, {
+                    tagName: 'awesome',
+                    limit: 6,
+                    get: 'user',
+                    resolution: 'standard_resolution',
+                    template: '<div class="ifw-item"><a rel="instagram" href="{{link}}" title="{{caption}}"><img src="{{image}}" alt="{{caption}}"></a></div>',
+                    after: function() {
+
+                    }
+                });
+            })();
+        </script>
+    </body>
+</html>

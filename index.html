@@ -10,22 +10,24 @@
     <body>
         <div class="ifw-demo-container">
             <section class="ifw-demo-section ifw-text-center">
-                <h2>6 Items</h2>
+                <h2>Demo #1</h2>
 
                 <!-- Instafeed container -->
                 <div id="ifw-instafeed-container" class="ifw-instafeed-container"
                      data-load-more-control="instafeed-load-more"
                      data-get="user"
-                     data-user="marry"></div>
+                     data-user="john"></div>
                 <!-- End of Instafeed container -->
 
                 <!-- Control for dynamically loading photos -->
-                <button id="instafeed-load-more" type="button" class="ifw-demo-btn">Load More</button>
+                <button id="instafeed-load-more" type="button" class="ifw-demo-btn"
+                        data-ifw-loading-content="Loading..."
+                        data-ifw-disabled-content="Loaded">Load More</button>
                 <!-- End of Control for dynamically loading photos -->
             </section>
 
             <section class="ifw-demo-section ifw-text-center">
-                <h2>3 Items</h2>
+                <h2>Demo # 2</h2>
 
                 <!-- Instafeed container -->
                 <div id="ifw-instafeed-container-2" class="ifw-instafeed-container"
@@ -33,27 +35,36 @@
                      data-limit="3"
                      data-resolution="thumbnail"
                      data-get="user"
-                     data-user="marry"></div>
+                     data-user="doe"></div>
                 <!-- End of Instafeed container -->
 
                 <!-- Control for dynamically loading photos -->
-                <button id="instafeed-load-more-2" type="button" class="ifw-demo-btn">Load More</button>
+                <button id="instafeed-load-more-2" type="button" class="ifw-demo-btn"
+                        data-ifw-loading-content="Loading..."
+                        data-ifw-disabled-content="Loaded">Load More</button>
                 <!-- End of Control for dynamically loading photos -->
             </section>
         </div>
 
         <script src="libs/instafeed.min.js"></script>
-        <script src="instafeed.wrapper.js"></script>
+        <script src="instafeed.wrapper.min.js"></script>
         <script>
             (function(){
                 'use strict';
 
                 // Getting the container element
-                var containers = document.getElementsByClassName('ifw-instafeed-container');
+                var containers = document.querySelectorAll('.ifw-instafeed-container');
 
                 InstafeedWrapper.setUsersSecureOptions({
-                    'marry': {
-                        
+                    'john': {
+                        userId: '',
+                        accessToken: '',
+                        clientId: ''
+                    },
+                    'doe': {
+                        userId: '',
+                        accessToken: '',
+                        clientId: ''
                     }
                 });
 
